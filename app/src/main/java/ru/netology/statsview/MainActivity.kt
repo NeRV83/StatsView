@@ -1,11 +1,9 @@
 package ru.netology.statsview
 
 import android.os.Bundle
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ru.netology.statsview.ui.StatsView
@@ -20,33 +18,15 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val view =findViewById<StatsView>(R.id.statsView)
-         view.data = listOf(
-            500F,
-            500F,
-            500F,
-            500F,
-        )
 
-//        val textView = findViewById<TextView>(R.id.label)
-//
-//        view.startAnimation(
-//            AnimationUtils.loadAnimation(this, R.anim.animation).apply {
-//                setAnimationListener(object: Animation.AnimationListener{
-//                    override fun onAnimationEnd(p0: Animation?) {
-//                        textView.text = "onAnimationEnd"
-//                    }
-//
-//                    override fun onAnimationRepeat(p0: Animation?) {
-//                        textView.text = "onAnimationRepeat"
-//                    }
-//
-//                    override fun onAnimationStart(p0: Animation?) {
-//                        textView.text = "onAnimationStart"
-//                    }
-//
-//                })
-//            }
-//        )
+        val statsView = findViewById<StatsView>(R.id.statsView)
+        val switch = findViewById<SwitchCompat>(R.id.animationSwitch)
+
+        statsView.data = listOf(500F, 500F, 500F, 500F)
+
+        switch.setOnCheckedChangeListener { _, isChecked ->
+            statsView.setAnimationType(isSequential = isChecked)
+        }
+
     }
 }
