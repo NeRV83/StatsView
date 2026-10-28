@@ -7,11 +7,54 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/tvParallel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/parallelAnimationType"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/animationSwitch"
+        app:layout_constraintEnd_toStartOf="@+id/animationSwitch"
+        app:layout_constraintTop_toTopOf="@+id/animationSwitch" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/animationSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:showText="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSequential"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/sequentialAnimationType"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/animationSwitch"
+        app:layout_constraintStart_toEndOf="@+id/animationSwitch"
+        app:layout_constraintTop_toTopOf="@+id/animationSwitch" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="top|center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
     <ru.netology.statsview.ui.StatsView
         android:id="@+id/statsView"
         android:layout_width="300dp"
         android:layout_height="300dp"
         app:LineWidth="20dp"
+        app:animationType="parallel"
         app:color1="#6A1BFF"
         app:color2="#26D9C2"
         app:color3="#FDD835"
